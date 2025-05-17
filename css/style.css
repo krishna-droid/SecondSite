@@ -1,0 +1,854 @@
+/* Define font families and variables */
+:root {
+  --primary-font: "Poppins", sans-serif;
+  --secondary-font: "Roboto", sans-serif;
+  --primary: #222831;
+  --accent: #393e46;
+  --highlight: #00adb5;
+  --white: #fff;
+  --gray: #f7f7f7;
+  --radius: 16px;
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure the footer stays at the bottom */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: var(--secondary-font); /* Use Roboto for body text */
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  background: var(--gray);
+  margin: 0;
+}
+
+main {
+  flex: 1; /* Push the footer to the bottom */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--primary-font); /* Use Poppins for headings */
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+p,
+li,
+a {
+  font-family: var(
+    --secondary-font
+  ); /* Use Roboto for paragraphs, lists, and links */
+  font-size: 1rem;
+  font-weight: 400;
+  color: #333;
+}
+
+a {
+  color: var(--highlight);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a.active,
+nav a.active {
+  color: var(--highlight);
+  font-weight: bold;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+header {
+  background: #fff;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo {
+  height: 90px; /* Increase the height */
+  width: auto; /* Maintain aspect ratio */
+  object-fit: contain;
+}
+.brand-name {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--accent);
+  letter-spacing: 2px;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+nav a {
+  font-family: var(--primary-font);
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.2s;
+  text-decoration: none;
+  color: #333;
+  margin: 0 10px;
+}
+nav a.active {
+  font-weight: bold;
+  color: var(--highlight);
+}
+nav a:hover {
+  color: var(--highlight);
+}
+
+/* Hero Section */
+.hero {
+  background-image: url("../images/mobile.webp");
+  background-size: 110%; /* Start zoomed in a bit */
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  padding-top: 3rem; /* Reduced padding to move content up */
+  animation: zoomBackground 5s ease-in-out infinite alternate;
+}
+
+@keyframes zoomBackground {
+  0% {
+    background-size: 110%;
+  }
+  100% {
+    background-size: 120%;
+  }
+}
+
+/* Hero Text */
+.hero-text {
+  position: relative;
+  z-index: 2; /* Ensure text is above the overlay */
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  transform: translateY(-50px); /* Move the content 50px up */
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+/* Hero Button */
+.hero-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 2rem;
+  background-color: var(--highlight); /* Use your highlight color */
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius);
+  
+}
+
+.hero-btn:hover {
+  background-color: var(--accent); /* Slightly darker color on hover */
+  transform: translateY(-3px); /* Lift effect on hover */
+}
+
+/* Stats Section */
+.stats-section {
+  padding: 50px 0;
+  background: #f9f9f9; /* Light background for contrast */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stats-container {
+  display: grid; /* Use grid layout */
+  grid-template-columns: 2fr 1fr; /* Larger image on the left, smaller cards on the right */
+  gap: 20px; /* Space between the image and the cards */
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center; /* Align items vertically */
+}
+
+.stats-img {
+  width: 100%;
+  border-radius: 15px; /* Rounded edges */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  overflow: hidden; /* Ensure the image stays within the rounded edges */
+}
+
+.stats-img img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensure the image scales properly */
+}
+
+.stats-content {
+  display: grid; /* Use grid layout for the cards */
+  grid-template-columns: repeat(2, 1fr); /* Two cards per row */
+  gap: 20px; /* Space between cards */
+}
+
+.stat-block {
+  text-align: center;
+  padding: 15px;
+  background: #fff;
+  border-radius: 10px; /* Rounded edges for cards */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-block:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.stat-number {
+  font-size: 1.5rem; /* Adjust font size for numbers */
+  font-weight: bold;
+  color: #007BFF;
+  display: block; /* Ensure the number is on its own line */
+  text-align: center; /* Center the number */
+  margin-bottom: 5px; /* Add spacing below the number */
+}
+
+.stat-label {
+  font-size: 1rem; /* Adjust font size for labels */
+  color: #555;
+  display: block; /* Ensure the label is on its own line */
+  text-align: center; /* Center the label */
+}
+
+/* About/Journey Section */
+.about-journey-section {
+  background: #fff;
+  padding: 4rem 0 2rem 0;
+}
+.about-journey-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+.about-journey-image {
+  flex: 1 1 400px;
+  min-width: 300px;
+}
+.about-journey-image img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  object-fit: cover;
+}
+.about-journey-text {
+  flex: 1 1 400px;
+  min-width: 300px;
+}
+.about-journey-text h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+}
+.about-journey-text p {
+  margin-bottom: 1.2rem;
+  color: #222;
+}
+.about-journey-text ul {
+  list-style: disc inside;
+  margin-bottom: 1.2rem;
+  color: #222;
+}
+.about-journey-text ul li {
+  margin-bottom: 0.5rem;
+}
+.about-btn {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  padding: 0.7rem 2rem;
+  border-radius: 3px;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: background 0.2s;
+}
+.about-btn:hover {
+  background: #222;
+}
+
+/* About Section */
+.about {
+  padding: 50px 0;
+  background: var(--white);
+}
+.about-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+.about-img img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.about-text h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.about-text p {
+  margin-bottom: 10px;
+}
+.about-text ul {
+  list-style: disc;
+  margin-left: 20px;
+}
+.blue-text {
+  color: rgb(88, 168, 202);
+}
+
+/* Footer */
+footer {
+  background: #333;
+  color: var(--white);
+  padding: 20px 0;
+  text-align: center;
+  margin-top: auto; /* Ensure the footer stays at the bottom */
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .stats-container,
+  .about-journey-container {
+    flex-direction: column;
+  }
+  .stats-image,
+  .about-journey-image,
+  .stats-numbers,
+  .about-journey-text {
+    min-width: 0;
+    width: 100%;
+  }
+  .stats-numbers,
+  .about-journey-text {
+    padding: 2rem 1rem;
+  }
+}
+
+.hero-text {
+  flex: 1 1 350px;
+  color: var(--white);
+  padding: 2rem 0;
+}
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--white);
+}
+.hero-text p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--white);
+}
+.hero-img {
+  flex: 1 1 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-img img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  object-fit: cover;
+}
+
+.about {
+  background: var(--white);
+  padding: 4rem 0;
+}
+.about-flex {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.about-img {
+  flex: 1 1 300px;
+}
+.about-img img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  object-fit: cover;
+}
+.about-text {
+  flex: 2 1 400px;
+}
+.about-text h2 {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+.about-text ul {
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+}
+.about-text ul li {
+  margin-bottom: 0.5rem;
+  list-style: disc;
+}
+
+.services {
+  background: var(--white);
+  padding: 4rem 0;
+}
+.section-title {
+  font-size: 2rem;
+  color: var(--accent);
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.services-grid {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.service-card {
+  flex: 1 1 calc(33.333% - 2rem); /* Ensure three cards fit in a row */
+  background: var(--gray);
+  padding: 2rem 1rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Service Card Images */
+.service-card img {
+  width: 300px; /* Increase the size of the images */
+  height: 200px; /* Make the images square */
+  object-fit: cover; /* Ensure the image scales properly */
+  margin-bottom: 1rem;
+  border-radius: 3px; /* Slightly rounded edges for the square images */
+}
+
+.service-card h3 {
+  font-size: 1.2rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.service-card p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.process {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+              url('../images/service.jpg'); /* Add your background image path */
+  background-size: cover; /* Ensure the image covers the entire section */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  padding: 4rem 0;
+  color: #fff; /* Change text color to white for contrast */
+}
+
+.process h2.section-title {
+  color: #fff; /* Ensure the title is visible on the dark background */
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two cards per row */
+  gap: 2rem; /* Space between cards */
+  justify-content: center; /* Center the grid items */
+}
+
+.process-step {
+  background: rgba(255, 255, 255, 0.9); /* Add a semi-transparent white background for steps */
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.process-step:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.process-step img {
+  width: 150px; /* Set the width of the image */
+  height: 150px; /* Set the height to make it square */
+  object-fit: cover; /* Ensure the image scales properly */
+  margin: 0 auto 1rem; /* Center the image and add spacing below */
+  border-radius: 10px; /* Slightly rounded edges */
+  display: block; /* Ensure proper centering */
+}
+/* Add your existing CSS here */
+
+
+
+.section-title {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.process-step h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+.process-step p {
+  font-size: 0.9rem;
+  color: #333; /* Ensure text inside the step is readable */
+  line-height: 1.5;
+  margin-top: 1rem;
+}
+
+.contact {
+  background: var(--gray);
+  padding: 4rem 0;
+}
+.contact-flex {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.contact-details {
+  flex: 1 1 300px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+.contact-details h2 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+.contact-details p {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.contact-details .icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 0.7rem;
+  object-fit: contain;
+}
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.social-icons img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.contact-form {
+  flex: 2 1 400px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+}
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+}
+.contact-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+.contact-form button {
+  background: var(--accent);
+  color: var(--white);
+  border: none;
+  padding: 0.9rem 0;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.contact-form button:hover {
+  background: var(--highlight);
+  color: var(--primary);
+}
+
+@media (max-width: 1000px) {
+  .hero-flex,
+  .about-flex,
+  .process-steps,
+  .services-grid,
+  .contact-flex {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-img,
+  .about-img {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .stats-container,
+  .about-flex {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .stats-image {
+    transform: translateX(0); /* Remove overlap on smaller screens */
+    margin-bottom: 20px;
+  }
+
+  .stats-image img {
+    max-width: 100%;
+  }
+
+  .stats-container {
+    grid-template-columns: 1fr; /* Stack the image and cards vertically */
+  }
+
+  .stats-content {
+    grid-template-columns: 1fr; /* One card per row on smaller screens */
+  }
+
+  .stat-block {
+    flex: 1 1 100%; /* Full width for cards on smaller screens */
+  }
+
+  .logo {
+    height: 50px; /* Smaller logo for mobile screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 98%;
+    padding: 0 1%;
+  }
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+  .section-title {
+    font-size: 1.3rem;
+  }
+  .brand-name {
+    font-size: 1.3rem;
+  }
+  nav {
+    gap: 1rem;
+  }
+  .contact-details,
+  .contact-form {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+  }
+}
+
+/* Animation for cards */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Start slightly below */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* End at the original position */
+  }
+}
+
+/* Process Section */
+.process {
+  padding: 4rem 0;
+  color: #333;
+}
+
+.process-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.process-header::before {
+  content: "";
+  background: url('../images/process-bg.jpg') no-repeat center center; /* Add your background image path */
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.3; /* Make the background image darker */
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fff; /* Ensure the text is visible on the background */
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.process-description {
+  font-size: 1rem;
+  color: #fff;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+/* Process Steps */
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two cards per row */
+  gap: 2rem; /* Space between cards */
+  justify-content: center; /* Center the grid items */
+}
+
+.process-step {
+  background: rgba(255, 255, 255, 0.9); /* Add a semi-transparent white background for steps */
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.process-step:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.process-step img {
+  width: 450px; /* Set the width of the image */
+  height: 150px; /* Set the height to make it square */
+  object-fit: cover; /* Ensure the image scales properly */
+  margin: 0 auto 1rem; /* Center the image and add spacing below */
+  border-radius: 10px; /* Slightly rounded edges */
+  display: block; /* Ensure proper centering */
+}
+
+.process-step h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+.process-step p {
+  font-size: 0.9rem;
+  color: #333; /* Ensure text inside the step is readable */
+  line-height: 1.5;
+}

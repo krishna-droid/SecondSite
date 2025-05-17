@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Mobile </title>
+    <link rel="icon" href="images/Happy Mo.png" type="image/png" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    <!-- Add Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@400;500&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container nav-flex">
+        <div class="logo-wrap">
+          <img src="images/Happy Mo.png" alt="Happy Mobile Logo" class="logo" />
+        </div>
+        <nav>
+          <a href="index.html" class="active">Home</a>
+          <a href="services.html">Services</a>
+          <a href="process.html">Process</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-text">
+        <h1 class="hero-title">Premium Preowned Devices</h1>
+        <p class="hero-description">
+          Discover high-quality preowned mobile phones, thoroughly tested and
+          backed by warranty, all at unbeatable prices.
+        </p>
+        <a href="services.html" class="hero-btn">Explore Services</a>
+      </div>
+    </section>
+    <section class="stats-section">
+      <div class="stats-container">
+        <div class="stats-img">
+          <img src="images/mobile.jpg" alt="Mobile Image" />
+        </div>
+        <div class="stats-content">
+          <div class="stat-block">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">Years of Experience</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-number">25+</span>
+            <span class="stat-label">Team Members</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-number">99%</span>
+            <span class="stat-label">Satisfied Customers</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-number">2</span>
+            <span class="stat-label">Stores</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .stats-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .stats-img img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .stats-content {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .stat-block {
+        text-align: left;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+        font-weight: bold;
+      }
+
+      .stat-label {
+        font-size: 1rem;
+        color: #555;
+      }
+    </style>
+
+    <script>
+      // Add scroll animation
+      document.addEventListener("DOMContentLoaded", () => {
+        const statsSection = document.querySelector(".stats-section");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                statsSection.classList.add("animate");
+              }
+            });
+          },
+          { threshold: 0.5 }
+        );
+
+        observer.observe(statsSection);
+      });
+    </script>
+
+    <style>
+      .stats-section {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .stats-section.animate {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+
+    <section class="about">
+      <div class="container about-flex">
+        <div class="about-img">
+          <img src="images/shop .png" alt="About Happy Mobile" />
+        </div>
+        <div class="about-text">
+          <h1>About Us</h1>
+          <p>
+            At Happy Mobile, we believe everyone deserves access to reliable,
+            affordable technology. Our mission is to make premium preowned
+            devices accessible to all, ensuring every product meets our strict
+            quality standards At Happy Mobile, we believe everyone deserves access to reliable,
+            affordable technology. Our mission is to make premium preowned
+            devices accessible to all, ensuring every product meets our strict
+            quality standards appy Mobile, we believe everyone deserves access to reliable,
+            affordable technology. Our mission is to make premium preowned
+            devices accessible to all, ensuring every product meets our strict
+            quality standards At Happy Mobile, we believe everyone deserves access to reliable,
+            affordable technology. Our mission is to make premium preowned
+            devices accessible to all, ensuring every product meets our strict
+            quality standards....
+          </p>
+            <p class="blue-text">200+ point quality check on every device</p>
+            <p class="blue-text">Seller-backed warranty for peace of mind</p>
+            <p class="blue-text">Customer-centric support</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container footer-content">
+        <div class="footer-left">
+          &copy; 2025 Happy Mobile. All rights reserved.
+        </div>
+      </div>
+    </footer>
+    <script src="js/main.js"></script>
+  </body>
+</html>
