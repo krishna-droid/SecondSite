@@ -852,3 +852,8 @@ footer {
   color: #333; /* Ensure text inside the step is readable */
   line-height: 1.5;
 }
+
+.services {
+  margin-top: 40px; /* Adjust this value to reduce the space */
+  padding-top: 20px; /* Adjust this value if padding is causing extra space */
+}
